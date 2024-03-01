@@ -19,7 +19,7 @@ import { ButtonDemoComponent } from './button-demo/button-demo.component';
 })
 export class AppModule { 
   constructor() {
-    initializeApp(environment.firebaseConfig);
+    
   }
 
 }

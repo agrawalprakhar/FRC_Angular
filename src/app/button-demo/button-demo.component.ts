@@ -14,10 +14,14 @@ export class ButtonDemoComponent {
   ngOnInit(): void {
     this.updateButtonState();
   }
-
-  async updateButtonState() {
+  
+  async updateButtonState() { 
+    this.remoteConfigService.getButtonEnabledObservable().subscribe((buttonEnabled: boolean) => {
+      console.log('Button Enabled r:', buttonEnabled); 
+      this.isButtonEnabled = buttonEnabled; 
+    });
     const isButtonEnabled = await this.remoteConfigService.fetchButtonEnabled();
-    console.log('Button Enabled:', isButtonEnabled); // Log the fetched value
+    console.log('Button Enabled:', isButtonEnabled); 
     this.isButtonEnabled = isButtonEnabled;
   }
 
